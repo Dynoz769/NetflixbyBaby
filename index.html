@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>NetflixByAdam</title>
+    <title>SpecialForYouSayang</title>
     <script>
         tailwind.config = {
             theme: {
@@ -18,6 +18,10 @@
         }
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
@@ -186,7 +190,8 @@
                 <div class="absolute inset-0 bg-gradient-to-r from-black via-transparent to-transparent"></div>
             </div>
             <div class="absolute bottom-1/4 left-2 xs:left-4 sm:left-8 md:left-16 z-10 max-w-xs px-2 xs:px-4">
-                <h1 class="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold mb-2 xs:mb-4">Selamat Hari Raya</h1>
+                <h1 class="text-2xl xs:text-3xl smburgo
+                sm:text-4xl md:text-5xl font-bold mb-2 xs:mb-4">Selamat Hari Jadi Sayang🤍</h1>
                 <p class="text-xs xs:text-sm sm:text-base mb-4 xs:mb-6">Maaf Atas semua salah silap saya yang pernah saya buat.</p>
                 <div class="flex gap-2 xs:gap-4">
                     <button class="bg-white text-black px-4 xs:px-6 py-2 rounded flex items-center gap-2 text-sm xs:text-base">
@@ -246,76 +251,89 @@
     </div>
 
     <div class="fixed bottom-4 right-4 z-50">
-        <label class="bg-red-600 text-white px-3 xs:px-4 py-2 rounded cursor-pointer text-sm xs:text-base">
+        <label class="bg-red-600 text-white px Grownup px-3 xs:px-4 py-2 rounded cursor-pointer text-sm xs:text-base">
             <i class="fas fa-upload mr-2"></i>Upload Video
             <input type="file" id="video-upload" accept="video/mp4" class="hidden">
         </label>
     </div>
 
     <script>
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCX8TdZaT7nw8lscfl3J1eZhfcAoZoAXns",
+            authDomain: "netflixforciqa.firebaseapp.com",
+            projectId: "netflixforciqa",
+            storageBucket: "netflixforciqa.firebasestorage.app",
+            messagingSenderId: "523950503984",
+            appId: "1:523950503984:web:e2a8d106f721b5a0e695f5",
+            measurementId: "G-9JS4VSYCDS"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const database = firebase.database();
+
         const profiles = [
             { id: 1, name: "SAYANG", avatar: "GAMBAR 2/5.jpg" },
         ];
 
         const videos = [
-  { id: 1, title: "1", video: "VIDEO/1.MP4", comments: [] },
-  { id: 2, title: "2", video: "VIDEO/2.MP4", comments: [] },
-  { id: 3, title: "3", video: "VIDEO/3.MP4", comments: [] },
-  { id: 4, title: "4", video: "VIDEO/4.MP4", comments: [] },
-  { id: 5, title: "5", video: "VIDEO/5.MP4", comments: [] },
-  { id: 6, title: "6", video: "VIDEO/6.MP4", comments: [] },
-  { id: 7, title: "7", video: "VIDEO/7.MP4", comments: [] },
-  { id: 8, title: "8", video: "VIDEO/8.MP4", comments: [] },
-  { id: 9, title: "9", video: "VIDEO/9.MP4", comments: [] },
-  { id: 10, title: "10", video: "VIDEO/10.MP4", comments: [] },
-  { id: 11, title: "11", video: "VIDEO/11.MP4", comments: [] },
-  { id: 12, title: "12", video: "VIDEO/12.MP4", comments: [] },
-  { id: 13, title: "13", video: "VIDEO/13.MP4", comments: [] },
-  { id: 14, title: "14", video: "VIDEO/14.MP4", comments: [] },
-  { id: 15, title: "15", video: "VIDEO/15.MP4", comments: [] },
-  { id: 16, title: "16", video: "VIDEO/16.MP4", comments: [] },
-  { id: 17, title: "17", video: "VIDEO/17.MP4", comments: [] },
-  { id: 18, title: "18", video: "VIDEO/18.MP4", comments: [] },
-  { id: 19, title: "19", video: "VIDEO/19.MP4", comments: [] },
-  { id: 20, title: "20", video: "VIDEO/20.MP4", comments: [] }
-];
+            { id: 1, title: "1", video: "VIDEO/1.MP4", comments: [] },
+            { id: 2, title: "2", video: "VIDEO/2.MP4", comments: [] },
+            { id: 3, title: "3", video: "VIDEO/3.MP4", comments: [] },
+            { id: 4, title: "4", video: "VIDEO/4.MP4", comments: [] },
+            { id: 5, title: "5", video: "VIDEO/5.MP4", comments: [] },
+            { id: 6, title: "6", video: "VIDEO/6.MP4", comments: [] },
+            { id: 7, title: "7", video: "VIDEO/7.MP4", comments: [] },
+            { id: 8, title: "8", video: "VIDEO/8.MP4", comments: [] },
+            { id: 9, title: "9", video: "VIDEO/9.MP4", comments: [] },
+            { id: 10, title: "10", video: "VIDEO/10.MP4", comments: [] },
+            { id: 11, title: "11", video: "VIDEO/11.MP4", comments: [] },
+            { id: 12, title: "12", video: "VIDEO/12.MP4", comments: [] },
+            { id: 13, title: "13", video: "VIDEO/13.MP4", comments: [] },
+            { id: 14, title: "14", video: "VIDEO/14.MP4", comments: [] },
+            { id: 15, title: "15", video: "VIDEO/15.MP4", comments: [] },
+            { id: 16, title: "16", video: "VIDEO/16.MP4", comments: [] },
+            { id: 17, title: "17", video: "VIDEO/17.MP4", comments: [] },
+            { id: 18, title: "18", video: "VIDEO/18.MP4", comments: [] },
+            { id: 19, title: "19", video: "VIDEO/19.MP4", comments: [] },
+            { id: 20, title: "20", video: "VIDEO/20.MP4", comments: [] }
+        ];
 
-
-       const images = [
-  { id: 1, title: "Image 1", src: "GAMBAR 2/1.jpg", comments: [] },
-  { id: 2, title: "Image 2", src: "GAMBAR 2/2.jpg", comments: [] },
-  { id: 3, title: "Image 3", src: "GAMBAR 2/3.jpg", comments: [] },
-  { id: 4, title: "Image 4", src: "GAMBAR 2/4.jpg", comments: [] },
-  { id: 5, title: "Image 5", src: "GAMBAR 2/5.jpg", comments: [] },
-  { id: 6, title: "Image 6", src: "GAMBAR 2/6.jpg", comments: [] },
-  { id: 7, title: "Image 7", src: "GAMBAR 2/7.jpg", comments: [] },
-  { id: 8, title: "Image 8", src: "GAMBAR 2/8.jpg", comments: [] },
-  { id: 9, title: "Image 9", src: "GAMBAR 2/9.jpg", comments: [] },
-  { id: 10, title: "Image 10", src: "GAMBAR 2/10.jpg", comments: [] },
-  { id: 11, title: "Image 11", src: "GAMBAR 2/11.jpg", comments: [] },
-  { id: 12, title: "Image 12", src: "GAMBAR 2/12.jpg", comments: [] },
-  { id: 13, title: "Image 13", src: "GAMBAR 2/13.jpg", comments: [] },
-  { id: 14, title: "Image 14", src: "GAMBAR 2/14.jpg", comments: [] },
-  { id: 15, title: "Image 15", src: "GAMBAR 2/15.jpg", comments: [] },
-  { id: 16, title: "Image 16", src: "GAMBAR 2/16.jpg", comments: [] },
-  { id: 17, title: "Image 17", src: "GAMBAR 2/17.jpg", comments: [] },
-  { id: 18, title: "Image 18", src: "GAMBAR 2/18.jpg", comments: [] },
-  { id: 19, title: "Image 19", src: "GAMBAR 2/19.jpg", comments: [] },
-  { id: 20, title: "Image 20", src: "GAMBAR 2/20.jpg", comments: [] }
-];
-
+        const images = [
+            { id: 1, title: "Image 1", src: "GAMBAR 2/1.jpg", comments: [] },
+            { id: 2, title: "Image 2", src: "GAMBAR 2/2.jpg", comments: [] },
+            { id: 3, title: "Image 3", src: "GAMBAR 2/3.jpg", comments: [] },
+            { id: 4, title: "Image 4", src: "GAMBAR 2/4.jpg", comments: [] },
+            { id: 5, title: "Image 5", src: "GAMBAR 2/5.jpg", comments: [] },
+            { id: 6, title: "Image 6", src: "GAMBAR 2/6.jpg", comments: [] },
+            { id: 7, title: "Image 7", src: "GAMBAR 2/7.jpg", comments: [] },
+            { id: 8, title: "Image 8", src: "GAMBAR 2/8.jpg", comments: [] },
+            { id: 9, title: "Image 9", src: "GAMBAR 2/9.jpg", comments: [] },
+            { id: 10, title: "Image 10", src: "GAMBAR 2/10.jpg", comments: [] },
+            { id: 11, title: "Image 11", src: "GAMBAR 2/11.jpg", comments: [] },
+            { id: 12, title: "Image 12", src: "GAMBAR 2/12.jpg", comments: [] },
+            { id: 13, title: "Image 13", src: "GAMBAR 2/13.jpg", comments: [] },
+            { id: 14, title: "Image 14", src: "GAMBAR 2/14.jpg", comments: [] },
+            { id: 15, title: "Image 15", src: "GAMBAR 2/15.jpg", comments: [] },
+            { id: 16, title: "Image 16", src: "GAMBAR 2/16.jpg", comments: [] },
+            { id: 17, title: "Image 17", src: "GAMBAR 2/17.jpg", comments: [] },
+            { id: 18, title: "Image 18", src: "GAMBAR 2/18.jpg", comments: [] },
+            { id: 19, title: "Image 19", src: "GAMBAR 2/19.jpg", comments: [] },
+            { id: 20, title: "Image 20", src: "GAMBAR 2/20.jpg", comments: [] }
+        ];
 
         const effortImages = [
             { id: 21, title: "Image 1", src: "GAMBAR 1/21.jpg", comments: [] },
-  { id: 22, title: "Image 2", src: "GAMBAR 1/22.jpg", comments: [] },
-  { id: 23, title: "Image 3", src: "GAMBAR 1/23.jpg", comments: [] },
-  { id: 24, title: "Image 4", src: "GAMBAR 1/24.jpg", comments: [] },
-  { id: 25, title: "Image 5", src: "GAMBAR 1/25.jpg", comments: [] },
-  { id: 26, title: "Image 6", src: "GAMBAR 1/26.jpg", comments: [] },
-  { id: 27, title: "Image 7", src: "GAMBAR 1/27.jpg", comments: [] },
-  { id: 28, title: "Image 8", src: "GAMBAR 1/28.jpg", comments: [] },
-  { id: 29, title: "Image 9", src: "GAMBAR 1/29.jpg", comments: [] },
-  { id: 30, title: "Image 10", src: "GAMBAR 1/30.jpg", comments: [] },
+            { id: 22, title: "Image 2", src: "GAMBAR 1/22.jpg", comments: [] },
+            { id: 23, title: "Image 3", src: "GAMBAR 1/23.jpg", comments: [] },
+            { id: 24, title: "Image 4", src: "GAMBAR 1/24.jpg", comments: [] },
+            { id: 25, title: "Image 5", src: "GAMBAR 1/25.jpg", comments: [] },
+            { id: 26, title: "Image 6", src: "GAMBAR 1/26.jpg", comments: [] },
+            { id: 27, title: "Image 7", src: "GAMBAR 1/27.jpg", comments: [] },
+            { id: 28, title: "Image 8", src: "GAMBAR 1/28.jpg", comments: [] },
+            { id: 29, title: "Image 9", src: "GAMBAR 1/29.jpg", comments: [] },
+            { id: 30, title: "Image 10", src: "GAMBAR 1/30.jpg", comments: [] },
         ];
 
         const userSelectionScreen = document.getElementById('user-selection');
@@ -334,6 +352,7 @@
 
         function init() {
             renderProfiles();
+            loadCommentsFromFirebase();
             renderContent();
             setupEventListeners();
             setupTabNavigation();
@@ -350,6 +369,30 @@
                 `;
                 profileElement.addEventListener('click', () => selectProfile(profile.id));
                 profilesContainer.appendChild(profileElement);
+            });
+        }
+
+        function loadCommentsFromFirebase() {
+            // Load comments for videos
+            database.ref('comments/videos').once('value', snapshot => {
+                const videoComments = snapshot.val() || {};
+                videos.forEach(video => {
+                    video.comments = videoComments[video.id] || [];
+                });
+                renderVideos();
+            });
+
+            // Load comments for images
+            database.ref('comments/images').once('value', snapshot => {
+                const imageComments = snapshot.val() || {};
+                images.forEach(image => {
+                    image.comments = imageComments[image.id] || [];
+                });
+                effortImages.forEach(image => {
+                    image.comments = imageComments[image.id] || [];
+                });
+                renderImages();
+                renderEffort();
             });
         }
 
@@ -384,59 +427,56 @@
         }
 
         function createVideoElement(video) {
-    const hasCommented = currentProfile && video.comments.some(c => c.userId === currentProfile.id);
-    const element = document.createElement('div');
-    element.className = 'movie-thumbnail rounded overflow-hidden transition-transform duration-300 relative group';
-    element.dataset.videoId = video.id;
+            const hasCommented = currentProfile && video.comments.some(c => c.userId === currentProfile.id);
+            const element = document.createElement('div');
+            element.className = 'movie-thumbnail rounded overflow-hidden transition-transform duration-300 relative group';
+            element.dataset.videoId = video.id;
 
-    const videoHTML = document.createElement('video');
-    videoHTML.src = video.video;
-    videoHTML.muted = true;            // ✅ Mute
-    videoHTML.autoplay = true;         // ✅ Autoplay
-    videoHTML.loop = true;             // ✅ Loop
-    videoHTML.playsInline = true;      // ✅ For mobile inline play
-    videoHTML.className = 'w-full h-40 object-cover rounded shadow-md cursor-pointer';
+            const videoHTML = document.createElement('video');
+            videoHTML.src = video.video;
+            videoHTML.muted = true;
+            videoHTML.autoplay = true;
+            videoHTML.loop = true;
+            videoHTML.playsInline = true;
+            videoHTML.className = 'w-full h-40 object-cover rounded shadow-md cursor-pointer';
 
-    // Event untuk buka modal dan main video besar
-    videoHTML.addEventListener('click', () => {
-        videoPlayer.querySelector('source').src = video.video;
-        videoPlayer.load();
-        videoModal.classList.remove('hidden');
-        videoPlayer.play();
-    });
+            videoHTML.addEventListener('click', () => {
+                videoPlayer.querySelector('source').src = video.video;
+                videoPlayer.load();
+                videoModal.classList.remove('hidden');
+                videoPlayer.play();
+            });
 
-    const titleDiv = document.createElement('div');
-    titleDiv.className = 'absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-center p-2 text-xs xs:text-sm';
-    titleDiv.textContent = video.title;
+            const titleDiv = document.createElement('div');
+            titleDiv.className = 'absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-center p-2 text-xs xs:text-sm';
+            titleDiv.textContent = video.title;
 
-    const commentSection = document.createElement('div');
-    commentSection.className = 'comment-section';
-    commentSection.innerHTML = `
-        <input 
-            type="text" 
-            class="comment-input" 
-            placeholder="${hasCommented ? 'Anda telah mengomentari' : 'Tulis kata-kata...'}" 
-            maxlength="100"
-            ${hasCommented ? 'disabled' : ''}>
-        <div class="comment-list">
-            ${video.comments.map(comment => `
-                <div class="comment-item">
-                    ${comment.text} 
-                    <span class="text-gray-500">
-                        (${profiles.find(p => p.id === comment.userId)?.name || 'Unknown'})
-                    </span>
-                </div>`).join('')}
-        </div>
-    `;
+            const commentSection = document.createElement('div');
+            commentSection.className = 'comment-section';
+            commentSection.innerHTML = `
+                <input 
+                    type="text" 
+                    class="comment-input" 
+                    placeholder="${hasCommented ? 'Anda telah mengomentari' : 'Tulis kata-kata...'}" 
+                    maxlength="100"
+                    ${hasCommented ? 'disabled' : ''}>
+                <div class="comment-list">
+                    ${video.comments.map(comment => `
+                        <div class="comment-item">
+                            ${comment.text} 
+                            <span class="text-gray-500">
+                                (${profiles.find(p => p.id === comment.userId)?.name || 'Unknown'})
+                            </span>
+                        </div>`).join('')}
+                </div>
+            `;
 
-    element.appendChild(videoHTML);
-    element.appendChild(titleDiv);
-    element.appendChild(commentSection);
+            element.appendChild(videoHTML);
+            element.appendChild(titleDiv);
+            element.appendChild(commentSection);
 
-    return element;
-}
-
-
+            return element;
+        }
 
         function createImageElement(image) {
             const hasCommented = currentProfile && image.comments.some(c => c.userId === currentProfile.id);
@@ -449,7 +489,11 @@
                 <div class="comment-section">
                     <input type="text" class="comment-input" placeholder="${hasCommented ? 'Anda telah mengomentari' : 'Tulis kata-kata...'}" maxlength="100" ${hasCommented ? 'disabled' : ''}>
                     <div class="comment-list">
-                        ${image.comments.map(comment => `<div class="comment-item">${comment.text} <span class="text-gray-500">(${profiles.find(p => p.id === comment.userId).name})</span></div>`).join('')}
+                        ${image.comments.map(comment => `
+                            <div class="comment-item">
+                                ${comment.text} 
+                                <span class="text-gray-500">(${profiles.find(p => p.id === comment.userId)?.name || 'Unknown'})</span>
+                            </div>`).join('')}
                     </div>
                 </div>
             `;
@@ -580,13 +624,20 @@
                             ? videos.find(v => v.id == id)
                             : [...images, ...effortImages].find(img => img.id == id);
                         if (item && !item.comments.some(c => c.userId === currentProfile.id)) {
-                            item.comments.push({ userId: currentProfile.id, text: commentText });
+                            const comment = { userId: currentProfile.id, text: commentText };
+                            item.comments.push(comment);
+                            // Save to Firebase
+                            const refPath = isVideo ? `comments/videos/${id}` : `comments/images/${id}`;
+                            database.ref(refPath).set(item.comments);
                             if (isVideo) {
                                 renderVideos();
                             } else {
                                 renderImages();
                                 renderEffort();
                             }
+                            e.target.value = '';
+                            e.target.disabled = true;
+                            e.target.placeholder = 'Anda telah mengomentari';
                         }
                     }
                 }
@@ -611,6 +662,29 @@
             videoModal.classList.remove('hidden');
             videoPlayer.play();
         }
+
+        // Listen for real-time updates to comments
+        database.ref('comments/videos').on('value', snapshot => {
+            const videoComments = snapshot.val() || {};
+            videos.forEach(video => {
+                video.comments = videoComments[video.id] || [];
+            });
+            renderVideos();
+        });
+
+        database.ref('comments/images').on('value', snapshot => {
+            const imageComments = snapshot.val() || {};
+            images.forEach(image => {
+                image.comments = imageComments[image.id] || [];
+            });
+            effortImages.forEach(image => {
+                image.comments = imageComments[image.id] || [];
+            });
+            render
+
+Images();
+            renderEffort();
+        });
 
         document.addEventListener('DOMContentLoaded', init);
     </script>
